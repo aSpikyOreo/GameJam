@@ -13,7 +13,8 @@ var currentPoint = 0
 var prevPos
 
 func _ready():
-	pos = pos_to_grid(position)
+	pos = points[0]
+	position = grid_to_pos(pos)
 	prevPos = pos
 	player = get_node("/root/Main/Player")
 	tileMap = get_node("/root/Main/Level")

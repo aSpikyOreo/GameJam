@@ -58,8 +58,8 @@ func valid_move(x, y):
 		canMove = true
 	elif (cell == DOOROPEN):
 		canMove = true
-	elif (cell == DOOR):
-		canMove = false
+	elif (cell == KEY):
+		canMove = true
 	return canMove
 
 func try_interact(x, y):
