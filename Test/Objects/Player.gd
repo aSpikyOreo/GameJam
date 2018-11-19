@@ -8,6 +8,7 @@ enum TILE { WALL, DOOR, DOOROPEN, LOCKEDDOORRED, DOOROPENRED, LOCKEDDOORBLUE, DO
             SENSOR, COLLECTABLE }
 var blueKeyCount = 0
 var redKeyCount = 0
+var collectableCount = 0
 
 func _ready():
 	position = grid_to_pos(pos)

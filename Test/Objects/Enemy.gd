@@ -36,6 +36,7 @@ func _process(delta):
 		update_vision(prevPos)
 	if (can_see_player()):
 		cought = true
+		get_tree().reload_current_scene()
 	pass
 
 func move_enemy(delta):
