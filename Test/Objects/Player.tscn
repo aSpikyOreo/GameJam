@@ -23,6 +23,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 tileSize = 32
 zoomChange = 0.1
 speed = 400
+pos = Vector2( 0, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
