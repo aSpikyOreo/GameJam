@@ -114,3 +114,10 @@ func try_pickup(x, y):
 		collectableCount += 1
 	elif (cell == LEVELCOMPLETE):
 		print("LevelCompelete")
+
+func grid_to_pos(grid):
+	return grid * 32 + Vector2(tileSize/2, tileSize/2)
+
+func pos_to_grid(pos):
+	var grid = (pos - Vector2(tileSize/2, tileSize/2)) / 32
+	return Vector2(int(grid.x), int(grid.y))
