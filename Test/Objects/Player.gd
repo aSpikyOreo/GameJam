@@ -4,7 +4,9 @@ export (int) var tileSize = 32
 export (float) var zoomChange = 0.1
 export (float) var speed = 400
 var pos = Vector2(0, 0)
-enum TILE { WALL, DOOR, DOOROPEN }
+enum TILE { WALL, DOOR, DOOROPEN, LOCKEDDOORRED, DOOROPENRED, LOCKEDDOORBLUE, DOOROPENBLUE, REDKEY, BLUEKEY }
+var blueKeyCount = 0
+var redKeyCount = 0
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -31,6 +33,8 @@ func _process(delta):
 		try_interact(pos.x, pos.y + 1)
 		try_interact(pos.x - 1, pos.y)
 		try_interact(pos.x + 1, pos.y)
+	if (canMove):
+		try_pickup(pos.x, pos.y)
 	pass
 
 func _input(event):
@@ -58,7 +62,13 @@ func valid_move(x, y):
 		canMove = true
 	elif (cell == DOOROPEN):
 		canMove = true
-	elif (cell == KEY):
+	elif (cell == DOOROPENRED):
+		canMove = true
+	elif (cell == DOOROPENBLUE):
+		canMove = true
+	elif (cell == REDKEY):
+		canMove = true
+	elif (cell == BLUEKEY):
 		canMove = true
 	return canMove
 
@@ -66,8 +76,30 @@ func try_interact(x, y):
 	var xFlip = get_parent().get_child(0).is_cell_x_flipped(x, y)
 	var yFlip = get_parent().get_child(0).is_cell_y_flipped(x, y)
 	var trans = get_parent().get_child(0).is_cell_transposed(x, y)
-	if (get_parent().get_child(0).get_cell(x, y) == DOOR):
+	var cell = get_parent().get_child(0).get_cell(x, y) 
+	if (cell == DOOR):
 		get_parent().get_child(0).set_cell(x, y, DOOROPEN, xFlip, yFlip, trans)
-	elif (get_parent().get_child(0).get_cell(x, y) == DOOROPEN):
+	elif (cell == DOOROPEN):
 		get_parent().get_child(0).set_cell(x, y, DOOR, xFlip, yFlip, trans)
-		
+	elif (cell == LOCKEDDOORRED && redKeyCount > 0):
+		get_parent().get_child(0).set_cell(x, y, DOOROPENRED, xFlip, yFlip, trans)
+		redKeyCount -= 1
+	elif (cell == LOCKEDDOORBLUE && blueKeyCount > 0):
+		get_parent().get_child(0).set_cell(x, y, DOOROPENBLUE, xFlip, yFlip, trans)
+		blueKeyCount -= 1
+	elif (cell == REDKEY):
+		get_parent().get_child(0).set_cell(x, y, -1)
+		redKeyCount += 1
+	elif (cell == BLUEKEY):
+		get_parent().get_child(0).set_cell(x, y, -1)
+		blueKeyCount += 1
+
+func try_pickup(x, y):
+	var cell = get_parent().get_child(0).get_cell(x, y) 
+	if (cell == REDKEY):
+		get_parent().get_child(0).set_cell(x, y, -1)
+		redKeyCount += 1
+	elif (cell == BLUEKEY):
+		get_parent().get_child(0).set_cell(x, y, -1)
+		blueKeyCount += 1
+	

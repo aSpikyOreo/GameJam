@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DoorOpenBlue.png-389ee31f1f438209aa60fe7d71337321.stex"
+path="res://.import/RedKey.png-d0e58563eea828b700766efaaef0bcc0.stex"
 
 [deps]
 
-source_file="res://Assets/DoorOpenBlue.png"
-dest_files=[ "res://.import/DoorOpenBlue.png-389ee31f1f438209aa60fe7d71337321.stex" ]
+source_file="res://Assets/RedKey.png"
+dest_files=[ "res://.import/RedKey.png-d0e58563eea828b700766efaaef0bcc0.stex" ]
 
 [params]
 
