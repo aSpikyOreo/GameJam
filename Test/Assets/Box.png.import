@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PlayerWithoutBox.png-08e16473939964951b6188e502bab4e7.stex"
+path="res://.import/Box.png-f6cc718ad72d20e2455def3cb10da1f9.stex"
 
 [deps]
 
-source_file="res://Assets/Player Sprites/PlayerWithoutBox.png"
-dest_files=[ "res://.import/PlayerWithoutBox.png-08e16473939964951b6188e502bab4e7.stex" ]
+source_file="res://Assets/Box.png"
+dest_files=[ "res://.import/Box.png-f6cc718ad72d20e2455def3cb10da1f9.stex" ]
 
 [params]
 
