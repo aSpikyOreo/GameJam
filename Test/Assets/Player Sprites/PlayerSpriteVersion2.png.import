@@ -16,7 +16,11 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
+<<<<<<< HEAD
 flags/filter=false
+=======
+flags/filter=true
+>>>>>>> 5f2352ca1c694c10c6d22abd9cdfb12d51671a0d
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
