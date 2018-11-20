@@ -11,6 +11,8 @@ export (PoolVector2Array) var points
 export (int) var vision = 2
 var currentPoint = 0
 var prevPos
+enum ANIM { DOWN, RIGHT = 2, UP = 4, LEFT = 6 }
+var currentFrame = 0
 
 func _ready():
 	pos = points[0]
@@ -31,6 +33,19 @@ func _process(delta):
 		if (currentPoint >= points.size()):
 			currentPoint = 0
 		pos = points[currentPoint]
+		var dir = pos - pos_to_grid(position)
+		if (dir.y < 0):
+			$Sprite.frame = UP
+			currentFrame = UP
+		if (dir.y >= 0):
+			$Sprite.frame = DOWN
+			currentFrame = DOWN
+		if (dir.x < 0):
+			$Sprite.frame = LEFT
+			currentFrame = LEFT
+		if (dir.x > 0):
+			$Sprite.frame = RIGHT
+			currentFrame = RIGHT
 	if (prevPos != pos):
 		update_vision(prevPos)
 	if (can_see_player() && !cought):
@@ -41,6 +56,10 @@ func _process(delta):
 func move_enemy(delta):
 	var targetPos = (pos * tileSize) + Vector2(tileSize/2, tileSize/2)
 	var moveVector = (targetPos - position).normalized()
+	if (position.distance_to(targetPos) > tileSize/2):
+		$Sprite.frame = currentFrame + 1
+	else:
+		$Sprite.frame = currentFrame
 	if (position.distance_to(targetPos) <= (moveVector * delta * speed).length()):
 		position = targetPos
 		return true

@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Objects/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Enemy.png" type="Texture" id=2]
+[ext_resource path="res://Assets/EnemySprite.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -28,6 +28,9 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
+z_index = 2
 texture = ExtResource( 2 )
+hframes = 8
+_sections_unfolded = [ "Animation", "Transform", "Z Index" ]
 
 

@@ -8,7 +8,7 @@
 [ext_resource path="res://Assets/LevelComplete_Hud.png" type="Texture" id=6]
 [ext_resource path="res://Assets/GameOver.png" type="Texture" id=7]
 
-[node name="Hud" type="CanvasLayer" index="0"]
+[node name="Hud" type="CanvasLayer"]
 
 pause_mode = 2
 layer = 1
