@@ -33,9 +33,9 @@ func _process(delta):
 		pos = points[currentPoint]
 	if (prevPos != pos):
 		update_vision(prevPos)
-	if (can_see_player()):
+	if (can_see_player() && !cought):
 		cought = true
-		get_tree().reload_current_scene()
+		player.cought()
 	pass
 
 func move_enemy(delta):
@@ -55,22 +55,8 @@ func can_see_player():
 		see = true
 	var i = 1
 	if (!player.hasBox || !player.canMove):
-		while (i <= vision && !see && player.valid_move(currentPos.x - i, currentPos.y)):
-			currentPos + Vector2(-i, 0)
-			see = currentPos + Vector2(-i, 0) == player.pos
-			i += 1
-		i = 1
-		while (i <= vision && !see && player.valid_move(currentPos.x + i, currentPos.y)):
-			see = currentPos + Vector2(i, 0) == player.pos
-			i += 1
-		i = 1
-		while (i <= vision && !see && player.valid_move(currentPos.x, currentPos.y - i)):
-			see = currentPos + Vector2(0, -i) == player.pos
-			i += 1
-		i = 1
-		while (i <= vision && !see && player.valid_move(currentPos.x, currentPos.y + i)):
-			see = currentPos + Vector2(0, i) == player.pos
-			i += 1
+		if (visionMap.get_cellv(player.pos) == 0):
+			see = true
 	return see
 
 func update_vision(prevPos):

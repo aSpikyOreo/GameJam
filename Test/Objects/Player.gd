@@ -1,68 +1,85 @@
 extends Area2D
 
 export (int) var tileSize = 32
+export (int) var levelTime = 50.0
 export (float) var zoomChange = 0.1
 export (float) var speed = 200
 export (Vector2) var pos = Vector2(0, 0)
 export (String) var nextLevel
 enum TILE { WALL, DOOR, DOOROPEN, LOCKEDDOORRED, DOOROPENRED, LOCKEDDOORBLUE, DOOROPENBLUE, REDKEY, BLUEKEY, LEVELCOMPLETE,
             SENSOR, COLLECTABLE, BOX }
-enum ANIM { DOWN, RIGHT, UP, LEFT }
+enum ANIM { DOWN, RIGHT = 2, UP = 4, LEFT = 6 }
 var blueKeyCount = 0
 var redKeyCount = 0
+var score = 0
+export (int) var blueKeysTotal
+export (int) var redKeysTotal
 var collectableCount = 0
 var hasBox = false
 var canMove
+var currentFrame = 0
+var prevDir = Vector2(0, 0)
+var dir = Vector2(0, 0)
 
 func _ready():
 	position = grid_to_pos(pos)
+	$ScoreTimer.wait_time = levelTime
+	$Camera2D/Hud.setScore(0)
+	$Camera2D/Hud.setRedKeys(0)
+	$Camera2D/Hud.setBlueKeys(0)
+	$Camera2D/Hud.setRedKeysTotal(redKeysTotal)
+	$Camera2D/Hud.setBlueKeysTotal(blueKeysTotal)
 	pass
 
 func _process(delta):
 	canMove = move_player(delta)
 	if (canMove):
-		$Sprite.frame = DOWN
-		if (Input.is_action_just_pressed("up")):
-				$Sprite.frame = UP
-		if (Input.is_action_just_pressed("down")):
-				$Sprite.frame = DOWN
-		if (Input.is_action_just_pressed("left")):
-				$Sprite.frame = LEFT
-		if (Input.is_action_just_pressed("right")):
-				$Sprite.frame = RIGHT
-		
 		if (Input.is_action_pressed("up")):
 			if (valid_move(pos.x, pos.y - 1)):
-				pos += Vector2(0, -1)
-				$Sprite.frame = UP
+				dir += Vector2(0, -1)
 		if (Input.is_action_pressed("down")):
 			if (valid_move(pos.x, pos.y + 1)):
-				pos += Vector2(0, 1)
-				$Sprite.frame = DOWN
+				dir += Vector2(0, 1)
 		if (Input.is_action_pressed("left")):
 			if (valid_move(pos.x - 1, pos.y)):
-				pos += Vector2(-1, 0)
-				$Sprite.frame = LEFT
+				dir += Vector2(-1, 0)
 		if (Input.is_action_pressed("right")):
 			if (valid_move(pos.x + 1, pos.y)):
-				pos += Vector2(1, 0)
+				dir += Vector2(1, 0)
+		if (prevDir != dir):
+			if (dir == Vector2(0, 0)):
+				$Sprite.frame = DOWN
+				currentFrame = DOWN
+				pos = rpos_to_grid(position)
+			elif (dir == Vector2(0, -1)):
+				$Sprite.frame = UP
+				currentFrame = UP
+			elif (dir == Vector2(0, 1)):
+				$Sprite.frame = DOWN
+				currentFrame = DOWN
+			elif (dir.x == -1):
+				$Sprite.frame = LEFT
+				currentFrame = LEFT
+			elif (dir.x == 1):
 				$Sprite.frame = RIGHT
+				currentFrame = RIGHT
+			if (hasBox):
+				if (dir != Vector2(0, 0)):
+					$Sprite.frame += 8
+					currentFrame += 8
+				else:
+					$Sprite.frame = 16
+					currentFrame = 16
+		pos += dir
 		
-		if (Input.is_action_just_released("up")):
-			pos = rpos_to_grid(position)
-		elif (Input.is_action_just_released("down")):
-			pos = rpos_to_grid(position)
-		elif (Input.is_action_just_released("left")):
-			pos = rpos_to_grid(position)
-		elif (Input.is_action_just_released("right")):
-			pos = rpos_to_grid(position)
-	
 		if (Input.is_action_just_pressed("interact")):
 			try_interact(pos.x, pos.y - 1)
 			try_interact(pos.x, pos.y + 1)
 			try_interact(pos.x - 1, pos.y)
 			try_interact(pos.x + 1, pos.y)
 		try_pickup(pos.x, pos.y)
+		prevDir = dir
+		dir = Vector2(0, 0)
 	pass
 
 func _input(event):
@@ -76,6 +93,10 @@ func _input(event):
 func move_player(delta):
 	var targetPos = (pos * tileSize) + Vector2(tileSize/2, tileSize/2)
 	var moveVector = (targetPos - position).normalized()
+	if (position.distance_to(targetPos) > tileSize/2):
+		$Sprite.frame = currentFrame + 1
+	else:
+		$Sprite.frame = currentFrame
 	if (position.distance_to(targetPos) <= (moveVector * delta * speed).length()):
 		position = targetPos
 		return true
@@ -120,32 +141,63 @@ func try_interact(x, y):
 	elif (cell == LOCKEDDOORRED && redKeyCount > 0):
 		get_parent().get_child(0).set_cell(x, y, DOOROPENRED, xFlip, yFlip, trans)
 		redKeyCount -= 1
+		redKeysTotal -= 1
+		score += 15
+		$Camera2D/Hud.setScore(score)
+		$Camera2D/Hud.setRedKeys(redKeyCount)
+		$Camera2D/Hud.setRedKeysTotal(redKeysTotal)
 	elif (cell == LOCKEDDOORBLUE && blueKeyCount > 0):
 		get_parent().get_child(0).set_cell(x, y, DOOROPENBLUE, xFlip, yFlip, trans)
 		blueKeyCount -= 1
+		blueKeysTotal -= 1
+		score += 20
+		$Camera2D/Hud.setScore(score)
+		$Camera2D/Hud.setBlueKeys(blueKeyCount)
+		$Camera2D/Hud.setBlueKeysTotal(blueKeysTotal)
 	elif (cell == REDKEY):
 		get_parent().get_child(0).set_cell(x, y, -1)
 		redKeyCount += 1
+		score += 5
+		$Camera2D/Hud.setScore(score)
+		$Camera2D/Hud.setRedKeys(redKeyCount)
 	elif (cell == BLUEKEY):
 		get_parent().get_child(0).set_cell(x, y, -1)
 		blueKeyCount += 1
+		score += 10
+		$Camera2D/Hud.setScore(score)
+		$Camera2D/Hud.setBlueKeys(blueKeyCount)
 
 func try_pickup(x, y):
 	var cell = get_parent().get_child(0).get_cell(x, y) 
 	if (cell == REDKEY):
 		get_parent().get_child(0).set_cell(x, y, -1)
 		redKeyCount += 1
+		score += 5
+		$Camera2D/Hud.setScore(score)
+		$Camera2D/Hud.setRedKeys(redKeyCount)
 	elif (cell == BLUEKEY):
 		get_parent().get_child(0).set_cell(x, y, -1)
 		blueKeyCount += 1
+		score += 10
+		$Camera2D/Hud.setScore(score)
+		$Camera2D/Hud.setBlueKeys(blueKeyCount)
 	elif (cell == COLLECTABLE):
 		get_parent().get_child(0).set_cell(x, y, -1)
 		collectableCount += 1
+		score += 100
+		$Camera2D/Hud.setScore(score)
 	elif (cell == BOX):
 		get_parent().get_child(0).set_cell(x, y, -1)
 		hasBox = true
-	#elif (cell == LEVELCOMPLETE):
-		#get_tree().change_scene("res://Object/" + nextLevel + ".tscn")
+	elif (cell == LEVELCOMPLETE):
+		score += int($ScoreTimer.time_left) * 5
+		$Camera2D/Hud.setScore(score)
+		$Camera2D/Hud.levelComplete(score, nextLevel)
+		get_tree().paused = true
+
+func cought():
+	$Camera2D/Hud.gameOver()
+	get_tree().paused = true
 
 func grid_to_pos(grid):
 	return grid * 32 + Vector2(tileSize/2, tileSize/2)
