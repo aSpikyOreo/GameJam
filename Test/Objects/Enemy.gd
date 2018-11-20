@@ -27,12 +27,11 @@ func _process(delta):
 	if (!cought):
 		canMove = move_enemy(delta)
 	if (canMove):
-		var prevPoint = pos
 		currentPoint += 1
 		if (currentPoint >= points.size()):
 			currentPoint = 0
 		pos = points[currentPoint]
-	if (prevPos != pos_to_grid(pos)):
+	if (prevPos != pos):
 		update_vision(prevPos)
 	if (can_see_player()):
 		cought = true
