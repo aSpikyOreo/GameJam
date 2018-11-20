@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Objects/Hud.gd" type="Script" id=1]
 [ext_resource path="res://Assets/BlueKeyDisable_Hud.png" type="Texture" id=2]
 [ext_resource path="res://Assets/BlueKey_Hud.png" type="Texture" id=3]
 [ext_resource path="res://Assets/RedKeyDisable_Hud.png" type="Texture" id=4]
 [ext_resource path="res://Assets/RedKey_Hud.png" type="Texture" id=5]
-[ext_resource path="res://Assets/LevelComplete_Hud.png" type="Texture" id=6]
-[ext_resource path="res://Assets/GameOver.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Collectable_Hud.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Collectable.png" type="Texture" id=7]
+[ext_resource path="res://Assets/LevelComplete_Hud.png" type="Texture" id=8]
+[ext_resource path="res://Assets/GameOver.png" type="Texture" id=9]
 
 [node name="Hud" type="CanvasLayer"]
 
@@ -39,13 +41,13 @@ size_flags_vertical = 1
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 938.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 948.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -61,13 +63,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 908.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 918.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -83,13 +85,13 @@ _sections_unfolded = [ "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 878.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 888.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -105,13 +107,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 848.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 858.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -127,13 +129,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 818.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 828.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -149,13 +151,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 788.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 798.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -171,13 +173,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 758.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 768.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -193,13 +195,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 728.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 738.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -215,13 +217,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 698.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 708.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -237,13 +239,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 668.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 678.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -259,13 +261,13 @@ _sections_unfolded = [ "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 938.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 948.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -281,13 +283,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 908.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 918.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -303,13 +305,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 878.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 888.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -325,13 +327,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 848.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 858.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -347,13 +349,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 818.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 828.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -369,13 +371,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 788.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 798.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -391,13 +393,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 758.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 768.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -413,13 +415,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 728.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 738.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -435,13 +437,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 698.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 708.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -457,13 +459,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 668.0
-margin_top = 16.0
+margin_top = -24.0
 margin_right = 678.0
-margin_bottom = 32.0
+margin_bottom = -8.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -479,13 +481,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 938.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 948.0
-margin_bottom = 81.0
+margin_bottom = 41.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -501,13 +503,13 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 908.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 918.0
-margin_bottom = 81.0
+margin_bottom = 41.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -523,13 +525,13 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 878.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 888.0
-margin_bottom = 81.0
+margin_bottom = 41.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -545,13 +547,13 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 848.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 858.0
-margin_bottom = 81.0
+margin_bottom = 41.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -567,13 +569,13 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 818.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 828.0
-margin_bottom = 81.0
+margin_bottom = 41.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -589,13 +591,13 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 788.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 798.0
-margin_bottom = 81.0
+margin_bottom = 41.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -611,13 +613,13 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 758.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 768.0
-margin_bottom = 81.0
+margin_bottom = 41.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -633,13 +635,13 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 728.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 738.0
-margin_bottom = 81.0
+margin_bottom = 41.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -655,13 +657,13 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 698.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 708.0
-margin_bottom = 81.0
+margin_bottom = 41.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -677,13 +679,13 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 668.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 678.0
-margin_bottom = 81.0
+margin_bottom = 41.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -699,13 +701,13 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 938.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 948.0
-margin_bottom = 80.0
+margin_bottom = 40.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -721,13 +723,13 @@ _sections_unfolded = [ "Anchor", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 908.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 918.0
-margin_bottom = 80.0
+margin_bottom = 40.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -743,13 +745,13 @@ _sections_unfolded = [ "Anchor", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 878.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 888.0
-margin_bottom = 80.0
+margin_bottom = 40.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -765,13 +767,13 @@ _sections_unfolded = [ "Anchor", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 848.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 858.0
-margin_bottom = 80.0
+margin_bottom = 40.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -787,13 +789,13 @@ _sections_unfolded = [ "Anchor", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 818.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 828.0
-margin_bottom = 80.0
+margin_bottom = 40.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -809,13 +811,13 @@ _sections_unfolded = [ "Anchor", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 788.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 798.0
-margin_bottom = 80.0
+margin_bottom = 40.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -831,13 +833,13 @@ _sections_unfolded = [ "Anchor", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 758.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 768.0
-margin_bottom = 80.0
+margin_bottom = 40.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -853,13 +855,13 @@ _sections_unfolded = [ "Anchor", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 728.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 738.0
-margin_bottom = 80.0
+margin_bottom = 40.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -875,13 +877,13 @@ _sections_unfolded = [ "Anchor", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 698.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 708.0
-margin_bottom = 80.0
+margin_bottom = 40.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -897,13 +899,13 @@ _sections_unfolded = [ "Anchor", "Rect" ]
 
 visible = false
 anchor_left = 1.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
+anchor_bottom = 1.0
 margin_left = 668.0
-margin_top = 64.0
+margin_top = 24.0
 margin_right = 678.0
-margin_bottom = 80.0
+margin_bottom = 40.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -931,21 +933,425 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="0" type="TextureRect" parent="Collectables" index="0"]
+[node name="Total0" type="TextureRect" parent="Collectables" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 48.0
+margin_bottom = 80.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+texture = ExtResource( 6 )
 stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Total1" type="TextureRect" parent="Collectables" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 48.0
+margin_right = 80.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Total2" type="TextureRect" parent="Collectables" index="2"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 80.0
+margin_top = 48.0
+margin_right = 112.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Total3" type="TextureRect" parent="Collectables" index="3"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 112.0
+margin_top = 48.0
+margin_right = 144.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Total4" type="TextureRect" parent="Collectables" index="4"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 48.0
+margin_right = 176.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Total5" type="TextureRect" parent="Collectables" index="5"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 176.0
+margin_top = 48.0
+margin_right = 208.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Total6" type="TextureRect" parent="Collectables" index="6"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 208.0
+margin_top = 48.0
+margin_right = 240.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Total7" type="TextureRect" parent="Collectables" index="7"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 48.0
+margin_right = 272.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Total8" type="TextureRect" parent="Collectables" index="8"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 272.0
+margin_top = 48.0
+margin_right = 304.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Total9" type="TextureRect" parent="Collectables" index="9"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 304.0
+margin_top = 48.0
+margin_right = 336.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="0" type="TextureRect" parent="Collectables" index="10"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 48.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="1" type="TextureRect" parent="Collectables" index="11"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 48.0
+margin_right = 80.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="2" type="TextureRect" parent="Collectables" index="12"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 80.0
+margin_top = 48.0
+margin_right = 112.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="3" type="TextureRect" parent="Collectables" index="13"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 112.0
+margin_top = 48.0
+margin_right = 144.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="4" type="TextureRect" parent="Collectables" index="14"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 48.0
+margin_right = 176.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="5" type="TextureRect" parent="Collectables" index="15"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 176.0
+margin_top = 48.0
+margin_right = 208.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="6" type="TextureRect" parent="Collectables" index="16"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 208.0
+margin_top = 48.0
+margin_right = 240.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="7" type="TextureRect" parent="Collectables" index="17"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 48.0
+margin_right = 272.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="8" type="TextureRect" parent="Collectables" index="18"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 272.0
+margin_top = 48.0
+margin_right = 304.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="9" type="TextureRect" parent="Collectables" index="19"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 304.0
+margin_top = 48.0
+margin_right = 336.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin", "Rect" ]
 
 [node name="Score" type="Label" parent="." index="2"]
 
@@ -955,8 +1361,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 40.0
-margin_bottom = 14.0
+margin_right = 59.0
+margin_bottom = 30.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -1025,17 +1431,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -50.0
-margin_right = 100.0
-margin_bottom = 50.0
+margin_left = -120.0
+margin_top = -55.0
+margin_right = 120.0
+margin_bottom = 55.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6
 _sections_unfolded = [ "Rect" ]
@@ -1090,9 +1496,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -70.0
+margin_left = -90.0
 margin_top = -40.0
-margin_right = 70.0
+margin_right = 90.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1100,7 +1506,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 expand = true
 stretch_mode = 6
 _sections_unfolded = [ "Rect" ]

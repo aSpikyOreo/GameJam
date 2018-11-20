@@ -54,6 +54,9 @@ vision = 20
 
 [node name="Player" parent="." index="4" instance=ExtResource( 3 )]
 
+blueKeysTotal = 0
+redKeysTotal = 4
+
 [node name="Vision" type="TileMap" parent="." index="5"]
 
 mode = 0

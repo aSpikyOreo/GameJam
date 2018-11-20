@@ -6,7 +6,8 @@
 
 [node name="Basic" type="Sprite" parent="." index="0"]
 
+modulate = Color( 1, 1, 1, 0.381216 )
 texture = ExtResource( 1 )
-_sections_unfolded = [ "Z Index" ]
+_sections_unfolded = [ "Visibility", "Z Index" ]
 
 

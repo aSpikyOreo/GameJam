@@ -56,7 +56,7 @@ func _process(delta):
 func move_enemy(delta):
 	var targetPos = (pos * tileSize) + Vector2(tileSize/2, tileSize/2)
 	var moveVector = (targetPos - position).normalized()
-	if (position.distance_to(targetPos) > tileSize/2):
+	if (int(pos_to_grid(position).x + pos_to_grid(position).y) % 2 == 1):
 		$Sprite.frame = currentFrame + 1
 	else:
 		$Sprite.frame = currentFrame

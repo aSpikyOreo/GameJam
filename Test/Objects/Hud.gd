@@ -19,7 +19,8 @@ func _process(delta):
 		get_tree().paused = false
 	if (Input.is_action_just_released("interact")):
 		get_tree().paused = false
-	
+	if (get_tree().paused && Input.is_action_just_pressed("ui_cancel")):
+		get_tree().quit()
 
 func setTotal(value, path):
 	var i = 0
@@ -40,6 +41,10 @@ func setRedKeysTotal(value):
 	setTotal(value, "Keys/RedKeysTotal")
 func setRedKeys(value):
 	setTotal(value, "Keys/RedKeys")
+func setCollectablesTotal(value):
+	setTotal(value, "Collectables/Total")
+func setCollectables(value):
+	setTotal(value, "Collectables/")
 
 func setScore(value):
 	$Score.text = "Score: " + str(value)
