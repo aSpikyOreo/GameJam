@@ -7,7 +7,7 @@
 [ext_resource path="res://Objects/VisionSet.tres" type="TileSet" id=5]
 [ext_resource path="res://Objects/GroundSet.tres" type="TileSet" id=6]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -69,7 +69,7 @@ nextLevel = "Level3"
 music = ExtResource( 4 )
 blueKeysTotal = 4
 redKeysTotal = 5
-collectablesTotal = 4
+collectablesTotal = 3
 
 [node name="Vision" type="TileMap" parent="." index="7"]
 

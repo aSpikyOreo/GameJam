@@ -108,9 +108,9 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseButton:
 	    if event.is_pressed():
-	        if event.button_index == BUTTON_WHEEL_UP:
+	        if event.button_index == BUTTON_WHEEL_UP && $Camera2D.zoom.x > 0.1:
 	            $Camera2D.zoom -= Vector2(zoomChange, zoomChange)
-	        if event.button_index == BUTTON_WHEEL_DOWN:
+	        if event.button_index == BUTTON_WHEEL_DOWN && $Camera2D.zoom.x < 1.8:
 	            $Camera2D.zoom += Vector2(zoomChange, zoomChange)
 
 func move_player(delta):

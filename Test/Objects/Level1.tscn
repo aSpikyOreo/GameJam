@@ -76,13 +76,14 @@ tile_data = PoolIntArray( 131087, 1610612737, 0, 131088, 1610612737, 0, 131089, 
 
 position = Vector2( 6, 1 )
 _sections_unfolded = [ "Transform" ]
-speed = 170.0
+speed = 140.0
 points = PoolVector2Array( 6, -2, 6, 7 )
 vision = 1
 
 [node name="Player" parent="." index="4" instance=ExtResource( 5 )]
 
 levelTime = 15
+speed = 150.0
 pos = Vector2( -11, 6 )
 nextLevel = "Main"
 blueKeysTotal = 1
