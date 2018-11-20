@@ -54,22 +54,23 @@ func can_see_player():
 	if (currentPos == player.pos):
 		see = true
 	var i = 1
-	while (i <= vision && !see && player.valid_move(currentPos.x - i, currentPos.y)):
-		currentPos + Vector2(-i, 0)
-		see = currentPos + Vector2(-i, 0) == player.pos
-		i += 1
-	i = 1
-	while (i <= vision && !see && player.valid_move(currentPos.x + i, currentPos.y)):
-		see = currentPos + Vector2(i, 0) == player.pos
-		i += 1
-	i = 1
-	while (i <= vision && !see && player.valid_move(currentPos.x, currentPos.y - i)):
-		see = currentPos + Vector2(0, -i) == player.pos
-		i += 1
-	i = 1
-	while (i <= vision && !see && player.valid_move(currentPos.x, currentPos.y + i)):
-		see = currentPos + Vector2(0, i) == player.pos
-		i += 1
+	if (!player.hasBox || !player.canMove):
+		while (i <= vision && !see && player.valid_move(currentPos.x - i, currentPos.y)):
+			currentPos + Vector2(-i, 0)
+			see = currentPos + Vector2(-i, 0) == player.pos
+			i += 1
+		i = 1
+		while (i <= vision && !see && player.valid_move(currentPos.x + i, currentPos.y)):
+			see = currentPos + Vector2(i, 0) == player.pos
+			i += 1
+		i = 1
+		while (i <= vision && !see && player.valid_move(currentPos.x, currentPos.y - i)):
+			see = currentPos + Vector2(0, -i) == player.pos
+			i += 1
+		i = 1
+		while (i <= vision && !see && player.valid_move(currentPos.x, currentPos.y + i)):
+			see = currentPos + Vector2(0, i) == player.pos
+			i += 1
 	return see
 
 func update_vision(prevPos):

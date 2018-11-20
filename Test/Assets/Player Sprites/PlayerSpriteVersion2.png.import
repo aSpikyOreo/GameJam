@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PlayerWithoutBox.png-08e16473939964951b6188e502bab4e7.stex"
+path="res://.import/PlayerSpriteVersion2.png-f8998066083a4769d418ba87c33bdff0.stex"
 
 [deps]
 
-source_file="res://Assets/Player Sprites/PlayerWithoutBox.png"
-dest_files=[ "res://.import/PlayerWithoutBox.png-08e16473939964951b6188e502bab4e7.stex" ]
+source_file="res://Assets/Player Sprites/PlayerSpriteVersion2.png"
+dest_files=[ "res://.import/PlayerSpriteVersion2.png-f8998066083a4769d418ba87c33bdff0.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

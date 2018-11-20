@@ -2,39 +2,66 @@ extends Area2D
 
 export (int) var tileSize = 32
 export (float) var zoomChange = 0.1
-export (float) var speed = 400
+export (float) var speed = 200
 export (Vector2) var pos = Vector2(0, 0)
+export (String) var nextLevel
 enum TILE { WALL, DOOR, DOOROPEN, LOCKEDDOORRED, DOOROPENRED, LOCKEDDOORBLUE, DOOROPENBLUE, REDKEY, BLUEKEY, LEVELCOMPLETE,
-            SENSOR, COLLECTABLE }
+            SENSOR, COLLECTABLE, BOX }
+enum ANIM { DOWN, RIGHT, UP, LEFT }
 var blueKeyCount = 0
 var redKeyCount = 0
 var collectableCount = 0
+var hasBox = false
+var canMove
 
 func _ready():
 	position = grid_to_pos(pos)
 	pass
 
 func _process(delta):
-	var canMove = move_player(delta)
-	if (canMove && Input.is_action_just_pressed("up")):
-		if (valid_move(pos.x, pos.y - 1)):
-			pos += Vector2(0, -1)
-	if (canMove && Input.is_action_just_pressed("down")):
-		if (valid_move(pos.x, pos.y + 1)):
-			pos += Vector2(0, 1)
-	if (canMove && Input.is_action_just_pressed("left")):
-		if (valid_move(pos.x - 1, pos.y)):
-			pos += Vector2(-1, 0)
-	if (canMove && Input.is_action_just_pressed("right")):
-		if (valid_move(pos.x + 1, pos.y)):
-			pos += Vector2(1, 0)
-
-	if (canMove && Input.is_action_just_pressed("interact")):
-		try_interact(pos.x, pos.y - 1)
-		try_interact(pos.x, pos.y + 1)
-		try_interact(pos.x - 1, pos.y)
-		try_interact(pos.x + 1, pos.y)
+	canMove = move_player(delta)
 	if (canMove):
+		$Sprite.frame = DOWN
+		if (Input.is_action_just_pressed("up")):
+				$Sprite.frame = UP
+		if (Input.is_action_just_pressed("down")):
+				$Sprite.frame = DOWN
+		if (Input.is_action_just_pressed("left")):
+				$Sprite.frame = LEFT
+		if (Input.is_action_just_pressed("right")):
+				$Sprite.frame = RIGHT
+		
+		if (Input.is_action_pressed("up")):
+			if (valid_move(pos.x, pos.y - 1)):
+				pos += Vector2(0, -1)
+				$Sprite.frame = UP
+		if (Input.is_action_pressed("down")):
+			if (valid_move(pos.x, pos.y + 1)):
+				pos += Vector2(0, 1)
+				$Sprite.frame = DOWN
+		if (Input.is_action_pressed("left")):
+			if (valid_move(pos.x - 1, pos.y)):
+				pos += Vector2(-1, 0)
+				$Sprite.frame = LEFT
+		if (Input.is_action_pressed("right")):
+			if (valid_move(pos.x + 1, pos.y)):
+				pos += Vector2(1, 0)
+				$Sprite.frame = RIGHT
+		
+		if (Input.is_action_just_released("up")):
+			pos = rpos_to_grid(position)
+		elif (Input.is_action_just_released("down")):
+			pos = rpos_to_grid(position)
+		elif (Input.is_action_just_released("left")):
+			pos = rpos_to_grid(position)
+		elif (Input.is_action_just_released("right")):
+			pos = rpos_to_grid(position)
+	
+		if (Input.is_action_just_pressed("interact")):
+			try_interact(pos.x, pos.y - 1)
+			try_interact(pos.x, pos.y + 1)
+			try_interact(pos.x - 1, pos.y)
+			try_interact(pos.x + 1, pos.y)
 		try_pickup(pos.x, pos.y)
 	pass
 
@@ -77,6 +104,8 @@ func valid_move(x, y):
 		canMove = true
 	elif (cell == COLLECTABLE):
 		canMove = true
+	elif (cell == BOX && !hasBox):
+		canMove = true
 	return canMove
 
 func try_interact(x, y):
@@ -112,8 +141,11 @@ func try_pickup(x, y):
 	elif (cell == COLLECTABLE):
 		get_parent().get_child(0).set_cell(x, y, -1)
 		collectableCount += 1
-	elif (cell == LEVELCOMPLETE):
-		print("LevelCompelete")
+	elif (cell == BOX):
+		get_parent().get_child(0).set_cell(x, y, -1)
+		hasBox = true
+	#elif (cell == LEVELCOMPLETE):
+		#get_tree().change_scene("res://Object/" + nextLevel + ".tscn")
 
 func grid_to_pos(grid):
 	return grid * 32 + Vector2(tileSize/2, tileSize/2)
@@ -121,3 +153,6 @@ func grid_to_pos(grid):
 func pos_to_grid(pos):
 	var grid = (pos - Vector2(tileSize/2, tileSize/2)) / 32
 	return Vector2(int(grid.x), int(grid.y))
+func rpos_to_grid(pos):
+	var grid = (pos - Vector2(tileSize/2, tileSize/2)) / 32
+	return Vector2(round(grid.x), round(grid.y))
