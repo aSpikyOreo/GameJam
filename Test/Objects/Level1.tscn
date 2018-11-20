@@ -5,7 +5,7 @@
 [ext_resource path="res://Objects/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=4]
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 [node name="Level" type="TileMap" parent="." index="0"]
 
